@@ -1,4 +1,4 @@
-# Blog
+# Hugo + github 블로그 생성
 
 - Repository 생성
   - 배포용
@@ -12,6 +12,18 @@
 
 - hugo 설치
   - Mac
+
 ~~~
 Brew install hugo
 ~~~
+
+- hugo 블로그 생성하기
+~~~
+hugo new site [blog 폴더 이름]
+ex) hugo new site blog
+~~~
+
+- blog Repository 연결하기
+git 연결은 Atlassian의 Sourcetree 프로그램을 이용했다.
+
+<img src="./img/01.png" width="400">
