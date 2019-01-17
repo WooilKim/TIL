@@ -10,9 +10,9 @@
 
 블로그 구축 파일을 관리할 repository를 생성. ex) blog
 
-## 테마
-Jekyll, Hexo, Hugo 등 여러 가지 테마가 존재 하고, 각각의 장단점이 있다.
-hugo 테마를 사용하기로 결정
+## 프레임워크
+Jekyll, Hexo, Hugo 등 여러 가지 프레임워크가 존재 하고, 각각의 장단점이 있다.
+hugo 프레임워크를 사용하기로 결정
 
 ### hugo 설치
 Mac 환경에서 진행하였다.
@@ -73,3 +73,55 @@ github에 연결되어 있다면 새로운 Repository 이름을 지정하면 생
 <img src="./img/09.png" width="400">
 
 blog 폴더에서 hugo 명령어를 입력하면 블로그가 배포된다.
+
+### 테마 설정
+
+[Hugo Themes](https://themes.gohugo.io/) 에서 원하는 테마를 선택한다.
+테마 github에 가서 Fork를 하면 내 repositories에 추가된다.
+
+위의 서브모듈 추가 방법과 같은 방법으로 로컬 경로를 "themes/테마이름" 으로 한 뒤 Fork한 repository를 연결하면 된다.
+
+이후 테마 폴더의 examplesites 폴더 안에 있는 config.toml파일을 복사해서 내 블로그 폴더의 config.toml파일을 덮어쓴다.
+
+config.toml파일의 theme="테마이름"에서 테마이름과 "themes/테마이름"은 같아야 한다.
+
+테마를 못찾는다면 아래에 themesdir 항목을 살표 볼 것. themesdir/테마이름 이 테마 폴더를 가리켜야한다.
+
+설정이 완료된 후 터미널에서 블로그 폴더에 들어간 뒤 hugo 명령어를 입력해주고 push하면 적용이 완료된다.
+
+수정한 config.toml 상단 부분은 아래와 같다.
+
+~~~toml
+baseurl = "https://wooilkim.github.io/"
+languageCode = "en-us"
+title = "Wooil"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "spf13"
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = ""
+# Define the number of posts per page
+paginate = 10
+footnotereturnlinkcontents = "↩"
+theme = "icarus"
+# Comment the themesDir option if you use this theme in production
+themesDir = "./themes/"
+
+
+[permalinks]
+    post = "/:year/:month/:day/:slug"
+
+
+[params]
+    # Tell me who you are
+    author = "Wooil Kim"
+    bio = "Blogger - Programmer - Researcher"
+    location = "Seoul, Republic of Korea"
+    site_description = ""
+    copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    avatar = "css/images/avatar.png"
+    # Enter your email address to display your Gravatar icon in the profile. If not set the theme
+    # will fallback to the avatar.
+    gravatar = "wooilkim@korea.ac.kr"
+    logo = "css/images/logo.png"
+    disable_mathjax = false # set to true to disable MathJax
+~~~
