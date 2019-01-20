@@ -1,6 +1,6 @@
 # 터미널 이름 변경하기
 
-터미널을 시작하면 
+터미널을 시작하면
 
 ~~~bash
 wooil-MacBookPro:~ wooil$ 
