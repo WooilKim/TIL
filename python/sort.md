@@ -16,12 +16,14 @@
 print(sorted(answers, key=lambda a: (
             -1 if a.split('/')[-1] == q else 1,
             -a.split('/')[-1].count(q),
-            [a.split('/')[-1].index(q, i) for i in range(a.split('/')[-1].count(q))],
+            [a.split('/')[-1].replace(q, ' ' * len(q), i).index(q) for i in range(a.split('/')[-1].count(q))],
             idxs.index(a.split('/')[-1]),
         )))
 
 발생한 인덱스 숫자
-[[0], [0, 3], [0, 1], [0, 1], [1, 1, 2], [2], [1], [0]]
-[[0], [0], [0, 1], [0, 1], [0, 3], [1], [1, 1, 2], [2]]
+['ROOTA/AA', 'ROOTA/AABAA', 'ROOTA/AAAAA', 'ROOTA/AAAA', 'ROOTA/BAAAAAAA', 'ROOTA/BBAA', 'ROOTA/CAA', 'ROOTB/AA']
+[[0], [0, 3], [0, 2], [0, 2], [1, 3, 5], [2], [1], [0]]
+[[0], [0], [0, 2], [0, 2], [0, 3], [1], [1, 3, 5], [2]]
+
 ```
 
